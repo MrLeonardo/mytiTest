@@ -1,5 +1,3 @@
-# mytiTest
-
 # Myti Practice Test
 
 ## Fase 1

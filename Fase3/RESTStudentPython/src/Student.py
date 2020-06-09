@@ -1,3 +1,5 @@
+from datetime import date 
+
 class Student:
         
     def __init__(self, json):           
@@ -7,6 +9,18 @@ class Student:
         self.__grades = json["grades"]
         
     def serialize(self):
+        return {
+            "firstname": self.__firstname,
+            "lastname": self.__lastname,
+            "birthdate": self.__birthdate,
+            "grades": self.__grades,
+        }
+    
+    def age(self):
+        days_in_year = 365.2425    
+        return age = int((date.today() - birthDate).days / days_in_year)
+    
+    def avg_grade(self):
         return {
             "firstname": self.__firstname,
             "lastname": self.__lastname,

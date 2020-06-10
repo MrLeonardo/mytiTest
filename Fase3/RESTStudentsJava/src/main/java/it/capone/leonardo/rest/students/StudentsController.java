@@ -1,9 +1,6 @@
 package it.capone.leonardo.rest.students;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +13,10 @@ public class StudentsController {
     static private HashSet<Student> students = new HashSet<>();
 
     @GetMapping("/students")
-    HashSet<Student> all() {
-        return students;
+    HashMap<String, Object> all() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("students", students);
+        return map;
     }
 
     @PostMapping("/students")
@@ -26,7 +25,14 @@ public class StudentsController {
         String lastname = body.get("lastname");
         String birthdate = body.get("birthdate");
         String grades = body.get("grades");
-        return this.students.add(new Student(firstname, lastname, birthdate, grades));
+
+        if(firstname != null &&
+            lastname != null &&
+            birthdate != null &&
+            grades != null)
+            return this.students.add(new Student(firstname, lastname, birthdate, grades));
+        else
+            return false;
     }
 
 

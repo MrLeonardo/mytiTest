@@ -6,13 +6,13 @@ public class Main {
         try {
             int numberOfDigit = Integer.valueOf(args[0]).intValue();
             long fib1 = 0;
-            long fib2 = 1;
+            long fib2 = 0;
             long c = 0;
             int i = 0;
 
             while (!(String.valueOf(c).length() == numberOfDigit)) {
                 i++;
-                c = fib(i, fib2, fib1);
+                c = fib(i, fib1, fib2);
                 fib2 = fib1;
                 fib1 = c;
             }

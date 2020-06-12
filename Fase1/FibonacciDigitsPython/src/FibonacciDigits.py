@@ -17,13 +17,13 @@ if __name__ == '__main__':
         numberOfDigit = int(numberOfDigit)
         
         fib1 = 0
-        fib2 = 1
+        fib2 = 0
         c = 0
         i = 0
         
         while not len(str(c)) == numberOfDigit:      
             i = i+1
-            c = fib(i, fib2, fib1)
+            c = fib(i, fib1, fib2)
             fib2 = fib1
             fib1 = c        
         
